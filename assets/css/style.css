@@ -14,6 +14,8 @@ body {
     width: 1070px;
     height: 100%;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
 }
 
 header {
@@ -23,7 +25,11 @@ header {
 }
 header img {
     height: 50px;
-    margin-top: 10px;
+    margin-left: 10%;
+}
+
+header .select-cont {
+    margin-left: 10px;
 }
 
 .cds-container {
@@ -66,3 +72,25 @@ header img {
 .cd span.year {
     color: grey;
 }
+
+/* select */
+
+select {
+    border-radius: 3px;
+    border: none;
+    width: 160px;
+    height: 30px;
+    background: #232b34;
+    color: #fff;
+}
+
+select option {
+    margin: 40px;
+    background: #232b34
+    color: #fff;
+}
+
+option[selected="selected"] {
+    display: flex;
+}
+
