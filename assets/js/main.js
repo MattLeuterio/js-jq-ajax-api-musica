@@ -21,6 +21,7 @@ $(document).ready(function() {
 	// refs
 	var apiAlbum = 'https://flynn.boolean.careers/exercises/api/array/music';
 	var containerAlbum = $('.cds-container');
+	var thisJQ = $(this);
 
 	// Init Handlebars
 	var source = $("#album-template").html();
@@ -43,6 +44,7 @@ $(document).ready(function() {
 					
 					// creo un nuovo oggetto 
 					var context = {
+						classDisplay: "display",
 						poster: albums[i].poster,
 						title: albums[i].title,
 						author: albums[i].author,
@@ -51,18 +53,49 @@ $(document).ready(function() {
 					};
 					
 					var html = template(context);
-					console.log(html);
 					
 					containerAlbum.append(html);
 
 				}
 
+				/**
+				 * 	FUNZIONALITA' "SELECT"
+				 */
+
+				// refs 
+				var select = $('#genre-select');
+				var albums = $('.cd');
+				
+				// al cambio della select cambio quali album visualizzare
+				select.change(function() {
+					
+				
+					// Creo Referenza della proprietà "value"
+					var value = $(this).prop('value');
+					
+					if (value !== 'all') {
+						// reset
+						albums.removeClass('display');
+
+						// show
+						$('.cd[data-genre="' + value + '"]').addClass('display')
+					} else {
+						albums.addClass('display')
+					}
+
+				});	
 			},
 			error: function() {
 				alert('Errore');
 			}
 		}
 	);
+
+		
+
+
+
+		
 
 
 

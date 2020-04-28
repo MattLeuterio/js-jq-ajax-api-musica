@@ -41,7 +41,7 @@ header .select-cont {
 }
 
 .cd {
-    display: flex;
+    display: none; /* jQuery*/
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
@@ -90,7 +90,6 @@ select option {
     color: #fff;
 }
 
-option[selected="selected"] {
+.display {
     display: flex;
 }
-
